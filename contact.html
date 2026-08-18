@@ -13,7 +13,8 @@
     <a href="index.html" class="site-name">
       <img src="images/logo.png" alt="sid wits illustration">
     </a>
-    <nav class="index-menu">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="index-menu" id="navMenu">
       <ul>
         <li><a href="about.html">about</a></li>
         <li><a href="commissions.html">commissions</a></li>
@@ -26,25 +27,47 @@
 <main class="wrap">
   <section class="page-section">
 
+    <a href="index.html" class="gallery-back">&larr; back</a>
     <h1 class="section-title">Contact</h1>
 
     <div class="contact-block">
-      <a href="mailto:sidwitsillustration@gmail.com" class="contact-email">sidwitsillustration@gmail.com</a>
+<h2 class="comm-form-title">Find me on Instagram!</h2>
       <a href="https://www.instagram.com/sid.wits/" target="_blank" rel="noopener" class="contact-instagram">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
         @sid.wits
       </a>
     </div>
-
-    <div class="newsletter-block">
+   <div class="newsletter-block">
       <h2 class="comm-form-title">Join my newsletter!</h2>
-      <p class="comm-form-note">Occasional, low-key updates on new work, prints, and market days.</p>
-      <form class="newsletter-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <p class="comm-form-note">Lil updates on new projects and market days.</p>
+      <form class="newsletter-form" action="https://formspree.io/f/xqpzgzgo" method="POST">
         <input type="hidden" name="_subject" value="New newsletter signup">
         <div class="newsletter-row">
           <input type="email" name="email" placeholder="your@email.com" required>
           <button type="submit">Subscribe</button>
         </div>
+
+    <div class="comm-form-wrap">
+      <h2 class="comm-form-title">Say hi!</h2>
+      <form class="comm-form" action="https://formspree.io/f/xqpzgzgo" method="POST">
+        <input type="hidden" name="_subject" value="New message from site">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-row">
+          <label for="message">What's up?</label>
+          <textarea id="message" name="message" rows="6" placeholder="" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send</button>
+      </form>
+    </div>
+
+ 
       </form>
     </div>
 

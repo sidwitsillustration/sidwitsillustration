@@ -76,6 +76,8 @@ header{
 
 .index-toggle{ display: none; }
 
+.nav-hamburger{ display: none; }
+
 .index-menu{
   display: flex;
   align-items: center;
@@ -143,8 +145,8 @@ header{
 .cat-title{
   display: block;
   margin-top: 10px;
-font-family: 'Gaegu', cursive
-  font-size: 0.9rem;
+  font-family: 'Gaegu', cursive;
+  font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 0.01em;
   text-align: center;
@@ -561,9 +563,52 @@ footer{
   .comm-row{ flex-direction: column; gap: 12px; }
   .comm-row-price{ align-items: flex-start; }
   .gallery-grid{ grid-template-columns: repeat(2, 1fr); }
-  .index-menu ul{ flex-direction: column; gap: 0; }
-  .index-menu ul li{ padding: 10px 0; border-top: 1px solid var(--line); }
-  .index-menu ul li:first-child{ border-top: none; }
+
+  .nav-hamburger{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span{
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink);
+    transition: opacity 0.15s;
+  }
+
+  .nav-hamburger:hover span{ opacity: 0.5; }
+
+  .index-menu{
+    display: none;
+    position: absolute;
+    top: 76px;
+    right: 0;
+    left: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    z-index: 49;
+  }
+
+  .index-menu.open{ display: block; }
+
+  .index-menu ul{
+    flex-direction: column;
+    gap: 0;
+    padding: 0 32px;
+  }
+
+  .index-menu ul li{
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .index-menu ul li:last-child{ border-bottom: none; }
 }
 
 @media (prefers-reduced-motion: reduce){

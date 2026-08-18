@@ -13,7 +13,8 @@
     <a href="index.html" class="site-name">
       <img src="images/logo.png" alt="sid wits illustration">
     </a>
-    <nav class="index-menu">
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="index-menu" id="navMenu">
       <ul>
         <li><a href="about.html">about</a></li>
         <li><a href="commissions.html">commissions</a></li>
@@ -26,6 +27,7 @@
 <main class="wrap">
   <section class="page-section">
 
+    <a href="index.html" class="gallery-back">&larr; back</a>
     <h1 class="section-title">Commissions</h1>
     <p class="comm-status comm-status--open">&#9679; commissions open</p>
 
@@ -67,8 +69,8 @@ Get in touch for a quote!</dd>
           <dd class="comm-desc">Full complex illustrations: backgrounds, characters interacting, event posters, story illustrations. 
 <p>Get in touch for a quote!</dd>
           <div class="comm-examples">
-            <img src="images/commissions/scene_01.png" alt="Scene illustration example 1">
-            <img src="images/commissions/scene_02.png" alt="Scene illustration example 2">
+            <img src="images/commissions/scene_01.png" alt="">
+            <img src="images/commissions/scene_02.png" alt="">
           </div>
         </div>
         <dd class="comm-row-price">
@@ -82,8 +84,8 @@ Get in touch for a quote!</dd>
           <dd class="comm-desc">Visual identity from concept through final art: logos, branding, podcast and album art. 
 <p>Get in touch for a quote!</dd>
           <div class="comm-examples">
-            <img src="images/commissions/visual_01.png" alt="Visual development example 1">
-            <img src="images/commissions/visual_02.png" alt="Visual development example 2">
+            <img src="images/commissions/visual_01.png" alt="">
+            <img src="images/commissions/visual_02.png" alt="">
           </div>
         </div>
         <dd class="comm-row-price">
@@ -96,7 +98,7 @@ Get in touch for a quote!</dd>
     <div class="comm-form-wrap">
       <h2 class="comm-form-title">Request a commission</h2>
       <p class="comm-form-note">Fill out the form below and I'll get back to you within a few days.</p>
-      <form class="comm-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="comm-form" action="https://formspree.io/f/xqpzgzgo" method="POST">
         <input type="hidden" name="_subject" value="New commission request">
         <div class="form-row">
           <label for="name">Name</label>

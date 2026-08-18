@@ -2,12 +2,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  const toggle = document.getElementById('indexToggle');
-  const menu = document.getElementById('indexMenu');
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
+  const hamburger = document.getElementById('navHamburger');
+  const menu = document.getElementById('navMenu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
       const open = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open);
+      hamburger.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        menu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
     });
   }
 });
