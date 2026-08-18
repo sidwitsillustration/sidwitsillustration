@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commissions — sid wits illustration</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a href="index.html" class="site-name">
+      <img src="images/logo.png" alt="sid wits illustration">
+    </a>
+    <nav class="index-menu">
+      <ul>
+        <li><a href="about.html">about</a></li>
+        <li><a href="commissions.html">commissions</a></li>
+        <li><a href="contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page-section">
+
+    <h1 class="section-title">Commissions</h1>
+    <p class="comm-status comm-status--open">&#9679; commissions open</p>
+
+    <dl class="comm-list-simple">
+
+      <div class="comm-row">
+        <div class="comm-row-left">
+          <dt class="comm-name">People & Critters</dt>
+          <dd class="comm-desc">Half or full body illustration of people & etc. Priced per figure. Digital download included. Physical print or sticker for + $10.</dd>
+          <div class="comm-examples">
+            <img src="images/commissions/figure_01.png" alt="Half body figure">
+            <img src="images/commissions/figure_02.png" alt="Full body figure">
+          </div>
+        </div>
+        <dd class="comm-row-price">
+          <span>$50 <span class="comm-price-sub">half body</span></span>
+          <span>$75 <span class="comm-price-sub">full body</span></span>
+        </dd>
+      </div>
+
+      <div class="comm-row">
+        <div class="comm-row-left">
+          <dt class="comm-name">House Portraits</dt>
+          <dd class="comm-desc">Watercolor and pen painting on watercolor paper, pressed and ready to frame. Sizes start at 10x14. Digitization and prints for + $50.<p>
+Get in touch for a quote!</dd>
+          <div class="comm-examples">
+            <img src="images/commissions/house_01.png" alt="">
+            <img src="images/commissions/house_02.png" alt="">
+          </div>
+        </div>
+        <dd class="comm-row-price">
+          <span>$175+</span>
+        </dd>
+      </div>
+
+      <div class="comm-row">
+        <div class="comm-row-left">
+          <dt class="comm-name">Scenes &amp; Posters</dt>
+          <dd class="comm-desc">Full complex illustrations: backgrounds, characters interacting, event posters, story illustrations. 
+<p>Get in touch for a quote!</dd>
+          <div class="comm-examples">
+            <img src="images/commissions/scene_01.png" alt="Scene illustration example 1">
+            <img src="images/commissions/scene_02.png" alt="Scene illustration example 2">
+          </div>
+        </div>
+        <dd class="comm-row-price">
+          <span>$25<span class="comm-price-sub">/hr</span></span>
+        </dd>
+      </div>
+
+      <div class="comm-row">
+        <div class="comm-row-left">
+          <dt class="comm-name">Visual Development</dt>
+          <dd class="comm-desc">Visual identity from concept through final art: logos, branding, podcast and album art. 
+<p>Get in touch for a quote!</dd>
+          <div class="comm-examples">
+            <img src="images/commissions/visual_01.png" alt="Visual development example 1">
+            <img src="images/commissions/visual_02.png" alt="Visual development example 2">
+          </div>
+        </div>
+        <dd class="comm-row-price">
+          <span>$200+</span>
+        </dd>
+      </div>
+
+    </dl>
+
+    <div class="comm-form-wrap">
+      <h2 class="comm-form-title">Request a commission</h2>
+      <p class="comm-form-note">Fill out the form below and I'll get back to you within a few days.</p>
+      <form class="comm-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="New commission request">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-row">
+          <label for="type">Commission type</label>
+          <select id="type" name="type">
+            <option value="">Select one...</option>
+            <option>Figure Illustration</option>
+            <option>House Portrait</option>
+            <option>Scene &amp; Poster</option>
+            <option>Visual Development</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="message">Tell me about your project</label>
+          <textarea id="message" name="message" rows="6" placeholder="Describe what you're looking for (references, details, timeline, any questions, etc)" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send request</button>
+      </form>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> sid wits illustration</div>
+</footer>
+
+<script src="script.js"></script>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="">
+  <button class="lightbox-next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  let current = 0;
+  let activeGroup = [];
+
+  function open(group, i){
+    activeGroup = group;
+    current = i;
+    lbImg.src = activeGroup[i].src;
+    lbImg.alt = activeGroup[i].alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function prev(){ open(activeGroup, (current - 1 + activeGroup.length) % activeGroup.length); }
+  function next(){ open(activeGroup, (current + 1) % activeGroup.length); }
+
+  document.querySelectorAll('.comm-examples').forEach(group => {
+    const imgs = Array.from(group.querySelectorAll('img'));
+    imgs.forEach((img, i) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => open(imgs, i));
+    });
+  });
+
+  document.getElementById('lbPrev').addEventListener('click', prev);
+  document.getElementById('lbNext').addEventListener('click', next);
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) close(); });
+  document.addEventListener('keydown', e => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'Escape') close();
+  });
+</script>
+</body>
+</html>

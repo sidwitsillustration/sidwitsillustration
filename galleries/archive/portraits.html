@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>portraits — sid wits illustration</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <a href="../index.html" class="site-name">
+      <img src="../images/logo.png" alt="sid wits illustration">
+    </a>
+    <nav class="index-menu">
+      <ul>
+        <li><a href="../about.html">about</a></li>
+        <li><a href="../commissions.html">commissions</a></li>
+        <li><a href="../contact.html">contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="page-section">
+    <a href="../index.html" class="gallery-back">&larr; back</a>
+    <h1 class="section-title">portraits</h1>
+    <div class="gallery-grid">
+      <figure><img src="../images/portraits/portraits_01.png" alt="portraits 01"></figure>
+      <figure><img src="../images/portraits/portraits_02.png" alt="portraits 02"></figure>
+      <figure><img src="../images/portraits/portraits_03.png" alt="portraits 03"></figure>
+      <figure><img src="../images/portraits/portraits_04.png" alt="portraits 04"></figure>
+      <figure><img src="../images/portraits/portraits_05.png" alt="portraits 05"></figure>
+      <figure><img src="../images/portraits/sportraits_06.png" alt="portraits 06"></figure>
+    </div>
+  </section>
+</main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <img class="lightbox-img" id="lbImg" src="" alt="">
+  <button class="lightbox-next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+
+<footer>
+  <div class="wrap">&copy; <span id="year"></span> sid wits illustration</div>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const imgs = Array.from(document.querySelectorAll('.gallery-grid img'));
+  let current = 0;
+
+  function open(i){
+    current = i;
+    lbImg.src = imgs[i].src;
+    lbImg.alt = imgs[i].alt;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function prev(){ open((current - 1 + imgs.length) % imgs.length); }
+  function next(){ open((current + 1) % imgs.length); }
+
+  imgs.forEach((img, i) => {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', () => open(i));
+  });
+
+  document.getElementById('lbPrev').addEventListener('click', prev);
+  document.getElementById('lbNext').addEventListener('click', next);
+
+  lightbox.addEventListener('click', e => { if(e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', e => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+    if(e.key === 'Escape') close();
+  });
+</script>
+</body>
+</html>
